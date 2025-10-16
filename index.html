@@ -1,410 +1,149 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para mi niña 💖</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: #fff;
+    color: white;
     text-align: center;
-    overflow-x: hidden;
-    min-height: 100vh;
-    position: relative;
-  }
-
-  @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Estrellas de fondo */
-  .stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle 3s infinite;
-  }
-
-  @keyframes twinkle {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
-
-  /* Corazones flotantes */
-  .hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
     overflow: hidden;
-    z-index: 2;
+    transition: background-image 1s ease-in-out;
   }
 
-  .heart {
-    position: absolute;
-    font-size: 20px;
-    color: rgba(255,255,255,0.8);
-    animation: float 8s infinite ease-in-out;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) scale(0) rotate(0deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-10vh) scale(1.5) rotate(360deg);
-      opacity: 0;
-    }
-  }
-
-  /* Partículas brillantes */
-  .sparkles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .sparkle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    animation: sparkle 4s infinite;
-  }
-
-  @keyframes sparkle {
-    0%, 100% {
-      opacity: 0;
-      transform: scale(0);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* Contenido principal */
   .container {
-    position: relative;
-    z-index: 10;
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   }
 
-  h1 {
-    margin-top: 60px;
-    font-size: 2.5em;
-    font-weight: 600;
-    text-shadow: 0 0 20px rgba(255,255,255,0.5),
-                 0 0 40px rgba(255,182,193,0.4);
-    animation: fadeInDown 1.5s ease-in-out, glow 3s ease-in-out infinite;
-  }
-
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes glow {
-    0%, 100% {
-      text-shadow: 0 0 20px rgba(255,255,255,0.5),
-                   0 0 40px rgba(255,182,193,0.4);
-    }
-    50% {
-      text-shadow: 0 0 30px rgba(255,255,255,0.8),
-                   0 0 60px rgba(255,182,193,0.6),
-                   0 0 80px rgba(255,105,180,0.4);
-    }
+  h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
   }
 
   p {
-    width: 85%;
-    max-width: 650px;
-    margin: 30px auto;
-    font-size: 1.15em;
-    line-height: 1.8;
-    font-weight: 300;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    animation: fadeIn 2s ease-in-out;
-    background: rgba(255,255,255,0.1);
-    padding: 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* Marco de foto romántico */
-  .photo-frame {
-    position: relative;
-    display: inline-block;
-    margin: 30px auto;
-    padding: 15px;
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-    border-radius: 30px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3),
-                0 0 20px rgba(255,255,255,0.2);
-    animation: photoGlow 3s ease-in-out infinite;
-  }
-
-  @keyframes photoGlow {
-    0%, 100% {
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3),
-                  0 0 20px rgba(255,255,255,0.2);
-    }
-    50% {
-      box-shadow: 0 10px 50px rgba(0,0,0,0.4),
-                  0 0 40px rgba(255,255,255,0.4);
-    }
-  }
-
-  img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 20px;
-    display: block;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  img.fade-out {
-    opacity: 0;
-  }
-
-  img.fade-in {
-    opacity: 1;
-  }
-
-  .mensaje {
-    font-size: 1.4em;
-    margin: 30px 0 20px;
-    font-weight: 600;
-    color: #fff;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.6em;
   }
 
   button {
-    background: linear-gradient(135deg, #fff, #f8f8f8);
-    color: #ff5c8d;
+    background-color: #ff88a9;
+    color: white;
     border: none;
-    padding: 15px 35px;
-    border-radius: 50px;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 1em;
     cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-    margin-top: 20px;
-    margin-bottom: 50px;
-    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
   }
 
   button:hover {
-    background: linear-gradient(135deg, #ff5c8d, #ff8fab);
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 35px rgba(255,92,141,0.4);
+    background-color: #ffb6c1;
+    transform: scale(1.1);
   }
 
-  button:active {
-    transform: translateY(-1px);
+  /* corazones flotantes 💕 */
+  .corazon {
+    position: absolute;
+    color: #ffb6c1;
+    font-size: 25px;
+    animation: flotar 4s linear infinite;
+    opacity: 0.8;
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2em;
-      margin-top: 40px;
+  @keyframes flotar {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
     }
-
-    p {
-      font-size: 1em;
-      width: 90%;
-      padding: 20px;
-    }
-
-    img {
-      max-width: 280px;
-    }
-
-    .mensaje {
-      font-size: 1.2em;
-    }
-
-    button {
-      padding: 12px 28px;
-      font-size: 1em;
+    100% {
+      transform: translateY(-200px) scale(1.5);
+      opacity: 0;
     }
   }
 </style>
 </head>
 <body>
 
-<!-- Estrellas -->
-<div class="stars"></div>
-
-<!-- Corazones flotantes -->
-<div class="hearts">
-  <div class="heart" style="left:5%; animation-delay:0s; font-size:25px;">💖</div>
-  <div class="heart" style="left:15%; animation-delay:1s; font-size:20px;">💞</div>
-  <div class="heart" style="left:25%; animation-delay:2s; font-size:30px;">💘</div>
-  <div class="heart" style="left:35%; animation-delay:3s; font-size:22px;">💝</div>
-  <div class="heart" style="left:45%; animation-delay:4s; font-size:28px;">💗</div>
-  <div class="heart" style="left:55%; animation-delay:5s; font-size:24px;">💕</div>
-  <div class="heart" style="left:65%; animation-delay:6s; font-size:26px;">💖</div>
-  <div class="heart" style="left:75%; animation-delay:7s; font-size:23px;">💞</div>
-  <div class="heart" style="left:85%; animation-delay:8s; font-size:29px;">💘</div>
-  <div class="heart" style="left:95%; animation-delay:9s; font-size:21px;">💝</div>
-  <div class="heart" style="left:10%; animation-delay:1.5s; font-size:27px;">💗</div>
-  <div class="heart" style="left:40%; animation-delay:2.5s; font-size:25px;">💕</div>
-  <div class="heart" style="left:60%; animation-delay:3.5s; font-size:24px;">💖</div>
-  <div class="heart" style="left:80%; animation-delay:4.5s; font-size:26px;">💞</div>
-  <div class="heart" style="left:90%; animation-delay:5.5s; font-size:22px;">💘</div>
-</div>
-
-<!-- Partículas brillantes -->
-<div class="sparkles"></div>
-
-<!-- Contenido -->
 <div class="container">
-  <h1>Para mi niña 💕</h1>
-  
-  <p>
-    Mi niña, sé que estás pasando por días llenos de trabajo y estrés,  
+  <h2 id="titulo">Mi niña 💕</h2>
+  <p id="mensaje">
+    Sé que estás pasando por días llenos de trabajo y estrés,  
     pero quiero que recuerdes que todo saldrá bien.  
     Estoy muy orgulloso de ti, te admiro por tu esfuerzo y te quiero muchísimo.  
-    Tómate un respiro, sonríe un poquito… y recuerda que siempre estaré aquí contigo ❤️.
+    Tómate un respiro, sonríe un poquito… y recuerda que siempre estaré aquí contigo 💖
   </p>
-
-  <div class="photo-frame">
-    <img id="foto" src="WhatsApp Image 2025-09-25 at 9.44.30 PM.jpeg" alt="Foto juntos">
-  </div>
-
-  <div class="mensaje" id="mensaje">Haz clic para una sorpresa 💌</div>
-
-  <button onclick="mostrarSiguiente()">Haz clic para sonreír 💖</button>
+  <button onclick="cambiarMensaje()">Cambiar foto 🌸</button>
 </div>
 
-<!-- Música de fondo -->
-<audio autoplay loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
+<!-- Música romántica -->
+<audio id="musica" src="musica.mp3"></audio>
+
 
 <script>
-  // Crear estrellas
-  const starsContainer = document.querySelector('.stars');
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    starsContainer.appendChild(star);
-  }
-
-  // Crear partículas brillantes
-  const sparklesContainer = document.querySelector('.sparkles');
-  for (let i = 0; i < 50; i++) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = Math.random() * 100 + '%';
-    sparkle.style.top = Math.random() * 100 + '%';
-    sparkle.style.animationDelay = Math.random() * 4 + 's';
-    sparklesContainer.appendChild(sparkle);
-  }
-
-  // Galería de fotos
-  const fotos = [
-    "WhatsApp Image 2025-09-25 at 9.44.30 PM.jpeg",
-    "WhatsApp Image 2025-09-25 at 9.44.32 PM.jpeg",
-    "WhatsApp Image 2025-10-08 at 1.55.11 PM.jpeg",
-    "IMG_20250927_205336603.jpg"
-  ];
-
   const mensajes = [
-    "Eres la mejor, mi niña 💕",
-    "Estoy muy orgulloso de ti 💪",
-    "Todo va a salir bien 🌈",
-    "Te amo más de lo que imaginas 💞"
+    {
+      texto: "Mi niña, sé que estás pasando por días llenos de trabajo y estrés, pero quiero que recuerdes que todo saldrá bien. Estoy muy orgulloso de ti 💕",
+      fondo: "url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=60')"
+    },
+    {
+      texto: "Eres la razón por la que sonrío cada día 💖 No importa lo difícil que sea el día, tú puedes con todo, confía en ti.",
+      fondo: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=60')"
+    },
+    {
+      texto: "Estoy muy orgulloso de ti 💪, nunca olvides lo fuerte y capaz que eres. Todo lo que sueñas está más cerca de lo que imaginas 🌈",
+      fondo: "url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=60')"
+    },
+    {
+      texto: "Gracias por existir y llenar mis días de luz ✨ Eres increíble en todos los sentidos. Te quiero muchísimo ❤️",
+      fondo: "url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=900&q=60')"
+    }
   ];
 
   let indice = 0;
-  
-  function mostrarSiguiente() {
-    const imgElement = document.getElementById("foto");
-    
-    // Efecto fade out
-    imgElement.classList.add('fade-out');
-    
-    setTimeout(() => {
-      indice = (indice + 1) % fotos.length;
-      imgElement.src = fotos[indice];
-      document.getElementById("mensaje").innerText = mensajes[indice];
-      
-      // Efecto fade in
-      imgElement.classList.remove('fade-out');
-      imgElement.classList.add('fade-in');
-    }, 500);
+
+  function cambiarMensaje() {
+    indice = (indice + 1) % mensajes.length;
+    document.body.style.backgroundImage = mensajes[indice].fondo;
+    document.getElementById("mensaje").textContent = mensajes[indice].texto;
+
+    crearCorazones();
+    reproducirMusica();
   }
+
+  function crearCorazones() {
+    for (let i = 0; i < 10; i++) {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.textContent = "💖";
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 4000);
+    }
+  }
+
+  function reproducirMusica() {
+    const musica = document.getElementById("musica");
+    musica.play().catch(() => {
+      console.log("El usuario debe interactuar antes de reproducir el audio.");
+    });
+  }
+
+  document.body.style.backgroundImage = mensajes[0].fondo;
 </script>
 
 </body>
